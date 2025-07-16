@@ -1,24 +1,53 @@
-# README
+## Requisitos
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Ruby 3.x
+- Rails 7.x
 
-Things you may want to cover:
+---
 
-* Ruby version
+## Instalação
 
-* System dependencies
+1. Clone o repositório:
 
-* Configuration
+```bash
+git clone git@github.com:gustavomgama/portabilis_app.git
+cd portabilis_app
+```
 
-* Database creation
+2. Instale as dependências
+```ruby
+bundle install
+```
+3. Criar banco de dados e migrações e seed
+```bash
+rails db:setup
+rails db:migrate
+```
+4. Rodar o servidor
+```ruby
+bin/dev
+```
 
-* Database initialization
+## Exemplos de requisições:
+1. Cria um usuário
+- **POST /api/v1/users**
+```json
+{
+  "user": {
+    "email": "foo@bar.com",
+    "password": "foo@bar.com",
+    "password_confirmation": "123456"
+  }
+}
+```
+2. Desativa/Ativa um usuário
+- **PATCH /api/v1/users/4**
+- Especificar qual usuário você quer atualizar na URL
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```json
+{
+  "user": {
+    "active": false
+  }
+}
+```
