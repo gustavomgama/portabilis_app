@@ -23,6 +23,14 @@ bundle install
 rails db:setup
 rails db:migrate
 ```
+3-1. Seed cria dois usuários:
+admin: 
+email: a@a.com
+senha: a@a.com
+usário normal:
+email: t@t.com
+senha: t@t.com
+
 4. Rodar o servidor
 ```ruby
 bin/dev
@@ -36,13 +44,13 @@ bin/dev
   "user": {
     "email": "foo@bar.com",
     "password": "foo@bar.com",
-    "password_confirmation": "123456"
+    "password_confirmation": "foo@bar.com"
   }
 }
 ```
 2. Desativa/Ativa um usuário
 - **PATCH /api/v1/users/4**
-- Especificar qual usuário você quer atualizar na URL
+- Especificar qual usuário você quer atualizar na URL passando o ID do usuário
 
 ```json
 {
